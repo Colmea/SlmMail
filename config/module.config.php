@@ -51,6 +51,7 @@ return array(
             'SlmMail\Mail\Transport\PostmarkTransport'     => 'SlmMail\Factory\PostmarkTransportFactory',
             'SlmMail\Mail\Transport\SendGridTransport'     => 'SlmMail\Factory\SendGridTransportFactory',
             'SlmMail\Mail\Transport\SesTransport'          => 'SlmMail\Factory\SesTransportFactory',
+            'SlmMail\Mail\Transport\MailjetTransport'      => 'SlmMail\Factory\MailjetTransportFactory',
 
             /**
              * Services
@@ -62,6 +63,7 @@ return array(
             'SlmMail\Service\PostmarkService'     => 'SlmMail\Factory\PostmarkServiceFactory',
             'SlmMail\Service\SendGridService'     => 'SlmMail\Factory\SendGridServiceFactory',
             'SlmMail\Service\SesService'          => 'SlmMail\Factory\SesServiceFactory',
+            'SlmMail\Service\MailjetService'          => 'SlmMail\Factory\MailjetServiceFactory',
 
             /**
              * HTTP client

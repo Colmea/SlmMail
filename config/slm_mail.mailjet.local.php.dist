@@ -1,0 +1,17 @@
+<?php
+
+return array(
+    'slm_mail' => array(
+        'mailjet' => array(
+            /**
+             * Set your Mailjet public API key
+             */
+            // 'public_key' => '',
+
+            /**
+             * Set your mailjet private API key
+             */
+            // 'private_key' => ''
+        )
+    )
+);
