@@ -101,6 +101,37 @@ class MailjetService extends AbstractMailService
      */
     public function send(Message $message)
     {
+        if ($message instanceof MailjetMessage && $message->getTemplate()) {
+            return $this->sendTemplate($message);
+        }
+
+        $to = array();
+        foreach ($message->getTo() as $address) {
+            $to[] = $address->toString();
+        }
+
+        $params = array(
+            "method" => "POST",
+            "MJ-TemplateLanguage" => true,
+            'Html-part' => $message-getBody(),
+            'Recipients' => $to
+        );
+
+        return $this->mailjetClient->post(Resources::$Email, ['body' => $params]);
+    }
+
+    /**
+     * {@inheritDoc}
+     * @link   http://elasticemail.com/api-documentation/send
+     * @return string The transaction id of the email
+     */
+    protected function sendTemplate(Message $message)
+    {
+        // Throws exception if no template
+        if (!$message->getTemplate()) {
+            throw new Exception("You're trying to send a template email, but none is set. Use setTemplate() method to set a template.")
+        }
+
         $to = array();
         foreach ($message->getTo() as $address) {
             $to[] = $address->toString();
