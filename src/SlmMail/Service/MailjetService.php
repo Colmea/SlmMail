@@ -129,7 +129,7 @@ class MailjetService extends AbstractMailService
     {
         // Throws exception if no template
         if (!$message->getTemplate()) {
-            throw new Exception("You're trying to send a template email, but none is set. Use setTemplate() method to set a template.")
+            throw new Exception("You're trying to send a template email, but none is set. Use setTemplate() method to set a template.");
         }
 
         $to = array();
