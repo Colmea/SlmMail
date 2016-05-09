@@ -135,6 +135,12 @@ class ElasticEmailService extends AbstractMailService
         if ($message instanceof ElasticEmailMessage) {
             $parameters['channel']  = $message->getChannel();
             $parameters['template'] = $message->getTemplate();
+            $parameters['template'] = $message->getTemplate();
+
+            // Add template vars
+            foreach ($message->getGlobalVariables() as $key => $value) {
+                $parameters['merge_' . $key] = $value;
+            }
         }
 
         // Attachments are handled using a very strange way in Elastic Email. They must first be uploaded

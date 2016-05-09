@@ -59,6 +59,11 @@ class ElasticEmail extends Message
     protected $template;
 
     /**
+     * @var array
+     */
+    protected $globalVariables = array();
+
+    /**
      * Set the channel id to use when the mail is sent
      *
      * @param  string $channel
@@ -101,4 +106,27 @@ class ElasticEmail extends Message
     {
         return $this->template;
     }
+
+    /**
+     * Set the global parameters to use with the template
+     *
+     * @param  array $globalVariables
+     * @return self
+     */
+    public function setGlobalVariables(array $globalVariables)
+    {
+        $this->globalVariables = $globalVariables;
+        return $this;
+    }
+
+    /**
+     * Get the global parameters to use with the template
+     *
+     * @return array
+     */
+    public function getGlobalVariables()
+    {
+        return $this->globalVariables;
+    }
+
 }
